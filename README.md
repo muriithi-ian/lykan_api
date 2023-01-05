@@ -12,7 +12,11 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-
+  * on linux: `sudo adduser lykan`
+  * run `sudo -u postgres createuser lykan -s`
+  * run `sudo -u postgres psql`
+  * run `\password lykan` and enter password [1234] 
+  * Run `rake db:create` to create the database
 * Database initialization
 
 * How to run the test suite
