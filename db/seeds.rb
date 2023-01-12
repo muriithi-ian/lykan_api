@@ -24,9 +24,9 @@ puts "Roles created"
 
 #Create Users
 puts "Creating users..."
-User.create(name: "admin", email:"admin@mail.com", password: BCrypt::Password.create("123456"))
-User.create(name: "agent", email:"agent@mail.com", password: BCrypt::Password.create("123456"))
-User.create(name: "user", email:"user@mai.com", password: BCrypt::Password.create("123456"))
+User.create(name: "admin", email:"admin@mail.com", password: "123456")
+User.create(name: "agent", email:"agent@mail.com", password: "123456")
+User.create(name: "user", email:"user@mai.com", password: "123456")
 puts "Users created"
 
 #Create User Roles
