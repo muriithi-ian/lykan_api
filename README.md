@@ -12,6 +12,7 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+  * change [postgres security to trust: ](https://stackoverflow.com/questions/12720967/how-can-i-change-a-postgresql-user-password)
   * on linux: `sudo adduser lykan`
   * run `sudo -u postgres createuser lykan -s`
   * run `sudo -u postgres psql`
