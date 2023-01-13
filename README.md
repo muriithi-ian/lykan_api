@@ -14,7 +14,7 @@ Things you may want to cover:
 * Database creation
   * install postgres locally
   * find the `pg_hba.conf` in the postgres installation: likely path is `/etc/postgresql/[version]/main/pg_hba.conf` replace version with postgres version installed
-    * (reference for previous step) change [postgres security to trust: ](https://stackoverflow.com/questions/12720967/how-can-i-change-a-postgresql-user-password)
+    * (reference for previous step) change [postgres security to trust: ](https://stackoverflow.com/a/12721020)
   * change `local     all         all             peer # change this to md5` to `local     all         all             md5 # like this`
   * restart postgres service with `sudo service postgresql restart`
   * add user/role `sudo adduser lykan`
