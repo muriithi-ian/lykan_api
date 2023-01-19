@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: lykan_api_production
-  username: lykan_api
-  password: <%= ENV["LYKAN_API_DATABASE_PASSWORD"] %>
+  url: postgresql://postgres:107sz1VZDpa4rMszRocG@containers-us-west-120.railway.app:7052/railway

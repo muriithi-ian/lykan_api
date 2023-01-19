@@ -24,16 +24,11 @@ puts "Roles created"
 
 #Create Users
 puts "Creating users..."
-User.create(name: "admin", email:"admin@mail.com", password: "123456")
-User.create(name: "agent", email:"agent@mail.com", password: "123456")
-User.create(name: "user", email:"user@mai.com", password: "123456")
+User.create(name: "admin", email:"admin@mail.com", password: "123456", role_id: Role.find_by(name: "admin").id)
+User.create(name: "agent", email:"agent@mail.com", password: "123456", role_id: Role.find_by(name: "agent").id)
+User.create(name: "user", email:"user@mai.com", password: "123456", role_id: Role.find_by(name: "user").id)
 puts "Users created"
 
-#Create User Roles
-puts "Creating user roles..."
-UserRole.create(user_id: User.find_by(name: "admin").id, role_id: Role.find_by(name: "admin").id)
-UserRole.create(user_id: User.find_by(name: "agent").id, role_id: Role.find_by(name: "agent").id)
-UserRole.create(user_id: User.find_by(name: "user").id, role_id: Role.find_by(name: "user").id)
 
 # Create categories
 puts "Creating categories..."
@@ -46,7 +41,7 @@ puts "Categories created"
 puts "Creating products..."
 products = [
     {
-        name: "Nike Air Max 270 React",
+        name: "Nike Air Max 270",
         image: Faker::LoremFlickr.image(size: "480x640", search_terms: ["nike air max 270 react"]),
         description: "The Nike Air Max 270 React is a new addition to the Air Max family. It features a React foam midsole and a Max Air unit in the heel for a comfortable ride. The upper is made of a combination of mesh and synthetic materials. The shoe is available in a variety of colors and is a great addition to any sneaker collection.",
         size: "6, 7, 8, 9, 10, 11, 12",
