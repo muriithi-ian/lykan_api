@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show update destroy ]
   before_action :authorize
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   # GET /orders
   def index
@@ -22,9 +23,14 @@ class OrdersController < ApplicationController
 
   # POST /orders
   def create
-    @order = Order.new(order_params)
+    @user = User.find(session[:user_id])
+    @order = Order.new(:status => params[:status], :user_id => @user.id)
 
     if @order.save
+      params[:products].each do |product| 
+        @order_product = OrderProduct.new(:order_id => @order.id, :product_id => product)
+        @order_product.save
+      end
       render json: @order, status: :created, location: @order
     else
       render json: @order.errors, status: :unprocessable_entity
@@ -53,6 +59,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.fetch(:order,:order_product,  {})
+      params.permit(:status, :products)
     end
 end
