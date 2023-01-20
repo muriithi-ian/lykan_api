@@ -25,8 +25,8 @@ puts "Roles created"
 #Create Users
 puts "Creating users..."
 User.create(name: "admin", email:"admin@mail.com", password: "123456", role_id: Role.find_by(name: "admin").id)
-User.create(name: "agent", email:"agent@mail.com", password: "123456", role_id: Role.find_by(name: "agent").id)
-User.create(name: "user", email:"user@mai.com", password: "123456", role_id: Role.find_by(name: "user").id)
+User.create(name: "user", email:"user@mail.com", password: "123456", role_id: Role.find_by(name: "agent").id)
+User.create(name: "user2", email:"user2@mail.com", password: "123456", role_id: Role.find_by(name: "user").id)
 puts "Users created"
 
 
